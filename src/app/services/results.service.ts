@@ -3,6 +3,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { CalculationResult } from '../models/calculation-result';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import 'rxjs/add/observable/merge';
 
 @Injectable()
 export class ResultsService {
@@ -21,13 +22,16 @@ export class ResultsService {
 
 }
 
-export class ExampleDataSource extends DataSource<any> {
+/**
+ * Datasource for our Results Table to connect to.
+ */
+class ExampleDataSource extends DataSource<any> {
 
   constructor(private _exampleDatabase: ExampleDatabase) {
     super();
   }
 
-  /* Connect function called by the table to retrieve one stream containing the data to render. */
+  /* Connect function called to retrieve one stream containing the data to render. */
   connect(): Observable<CalculationResult[]> {
     return Observable.merge(this._exampleDatabase.dataChange);
   }
@@ -35,6 +39,9 @@ export class ExampleDataSource extends DataSource<any> {
   disconnect() { }
 }
 
+/**
+ * Demo local database that allows us to save new results and will emit the change.
+ */
 class ExampleDatabase {
   /* Stream that emits whenever the data has been modified. */
   dataChange: BehaviorSubject<CalculationResult[]> = new BehaviorSubject<CalculationResult[]>([]);

@@ -3,6 +3,9 @@ import { CalculationResult } from '../models/calculation-result';
 import { Acturial } from '../models/acturial.model';
 import { ExecutionType } from '../enums/execution-type.enum';
 
+/**
+ * Service to simulate posting to an API and waiting for the calculation response.
+ */
 @Injectable()
 export class CalculationService {
 
@@ -10,9 +13,12 @@ export class CalculationService {
 
   doCalculation(acturial: Acturial): Promise<CalculationResult> {
     return new Promise(resolve => {
-      let todaysDate = new Date();      
+      let todaysDate = new Date();
+
+      // Dummy calculation  
       let benchmarkOne = (acturial.mainLimit / 100) * (acturial.executionType == ExecutionType.Simple ? 1 : 2); 
       let benchmarkTwo = (acturial.mainRetention / 100) * (acturial.executionType == ExecutionType.Simple ? 1 : 2); 
+      
       let result = new CalculationResult(todaysDate, benchmarkOne, benchmarkTwo);
 
       // Simulate server latency with 3 second delay

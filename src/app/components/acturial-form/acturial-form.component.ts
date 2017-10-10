@@ -25,7 +25,6 @@ export class ActurialFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("Submitting: " + JSON.stringify(this.acturial));    
     this.onSubmitted.emit(this.acturial);
   }
 

@@ -15,7 +15,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## What I would do with more time
 
- - Setup WebAPI to get and put results.
- - Add Paging incase there are lots of results.
+ - Setup a WebAPI to get and put results.
+ - Add paging in case there are lots of results.
  - Implement unit and integration tests.
  - Implement locale to format dates and currencies based on the user.
