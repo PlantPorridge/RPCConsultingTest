@@ -1,0 +1,22 @@
+<div>
+  <mat-table #table [dataSource]="datasource">
+
+    <ng-container matColumnDef="referenceDate">
+      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.date | date:'dd MMM yyyy'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="benchmarkOne">
+      <mat-header-cell *matHeaderCellDef> Benchmark One </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.benchmarkOne | percent}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="benchmarkTwo">
+      <mat-header-cell *matHeaderCellDef> Benchmark Two </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.benchmarkTwo | percent}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

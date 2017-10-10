@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmit()" class="root-form" #acturialForm="ngForm">
+  <mat-form-field>
+    <input matInput placeholder="Main Limit" type="number" min="1" class="currency-field" #mainLimit="ngModel" name="mainLimit"
+      required [(ngModel)]="acturial.mainLimit" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+    <span matPrefix>£&nbsp;</span>
+    <span matSuffix>{{millionSuffix}}</span>
+    <mat-error *ngIf="!mainLimit.valid">
+      Main Limit {{getNumberErrorMessage(mainLimit.errors)}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Main Retention" type="number" min="1" class="currency-field" #mainRetention="ngModel" name="mainRetention"
+      required [(ngModel)]="acturial.mainRetention" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+    <span matPrefix>£&nbsp;</span>
+    <span matSuffix>{{millionSuffix}}</span>
+    <mat-error *ngIf="!mainRetention.valid">
+      Main Retention {{getNumberErrorMessage(mainRetention.errors)}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Execution Type" name="executionType" required #executionType="ngModel"
+     [ngModel]="acturial.executionType.toString()" (ngModelChange)="onExecutionTypeChange($event)">
+      <mat-option *ngFor="let type of executionTypes" value={{executionTypes.indexOf(type)}}>{{type}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="!executionType.valid">
+        Execution Type {{getSelectErrorMessage(executionType.errors)}}
+    </mat-error>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary" [disabled]="!acturialForm.form.valid">Submit</button>
+</form>

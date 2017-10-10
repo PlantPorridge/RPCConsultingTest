@@ -2,26 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.4.
 
-## Development server
+## To Run
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ - Close this repo.
+ - Run `npm install`.
+ - Run `ng serve`
+ - Navigate to `http://localhost:4200/`
 
-## Code scaffolding
+## Notes on the Test
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ - I wasn't sure how restrictive to be on the currency input. For now, users can only enter multiples of millions.
 
-## Build
+## What I would do with more time
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ - Setup WebAPI to get and put results.
+ - Add Paging incase there are lots of results.
+ - Implement unit and integration tests.
+ - Implement locale to format dates and currencies based on the user.

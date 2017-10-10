@@ -1,0 +1,22 @@
+/* :host {
+    position: absolute;
+    width: 100%;
+} */
+
+.root-form {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.root-form > * {
+    width: 100%;
+}
+
+.currency-field {
+    text-align: right;
+  }
+
+input.currency-field::-webkit-outer-spin-button,
+input.currency-field::-webkit-inner-spin-button {
+    display: none;
+}
